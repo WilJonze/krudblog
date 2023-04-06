@@ -18,15 +18,26 @@ input {
   cursor: pointer;
 }
 
-.App {
+.Chat {
+  display: grid;
+  grid-template-columns: 75% 25%;
   width: 100%;
   min-height: 100vh;
   background-color: #1c2c4c;
   color: #4c768d;
 }
 
+.chat-box {
+    grid-column: 2;
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+}
+
 /* navbar */
 .nav-bar {
+  grid-column: 2;  
   padding: 10px 30px;
   display: flex;
   align-items: center;
@@ -34,6 +45,9 @@ input {
   background-color: #4c768d;
   color: #242443;
   height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .sign-in {
   border: none;
@@ -79,6 +93,8 @@ input {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
+
+ 
 }
 .chat-bubble.right {
   margin-left: auto;
@@ -99,8 +115,10 @@ input {
   color: #1c2c4c;
 }
 .user-message {
-  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 .message-time {
   display: block;
   text-align: right;
@@ -108,12 +126,16 @@ input {
 
 /* send message */
 .send-message {
+  grid-column: 2; 
   position: fixed;
   bottom: 0px;
-  width: 100%;
+  right: 0px;
+  width: 25%;
   padding: 20px 30px;
   background-color: #4c768d;
   display: flex;
+  z-index: 100;
+
 }
 .send-message > input {
   height: 40px;
@@ -124,6 +146,7 @@ input {
   background-color: white;
   color: #1c2c4c;
   font-size: 1rem;
+  cursor: default;
 }
 .send-message > input:placeholder {
   color: #ddd;

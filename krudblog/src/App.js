@@ -15,10 +15,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <main className='chat-box'>
+    <div className="Chat">
     <NavBar />
     {user === null ? <Welcome onSignIn={handleUserSignIn} /> : <ChatBox />}
   </div>
+  </main>
   );
 }
 

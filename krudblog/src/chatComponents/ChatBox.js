@@ -14,6 +14,8 @@ import "./ChatStyle.css"
 const ChatBox = () => {
     const [messages, setMessages] = useState([]);
     const scroll = useRef();
+    const messagesWrapper = useRef()
+
   
     useEffect(() => {
       const q = query(
@@ -31,6 +33,12 @@ const ChatBox = () => {
       });
       return () => unsubscribe;
     }, []);
+
+    useEffect(() => {
+        if (messagesWrapper.current) {
+            messagesWrapper.current.scrollTop = messagesWrapper.current.scrollHeight;
+        }
+    }, [messages]);
   
     return (
       <main className="chat-box">
